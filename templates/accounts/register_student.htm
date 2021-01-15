@@ -1,0 +1,84 @@
+{% extends 'main/base.htm' %}
+{% load static %}
+{% block content %}
+
+    <script>
+        function fillUsername() {
+                document.getElementById('username').value = document.getElementById('email').value;
+                document.getElementById('student_id').value = document.getElementById('email').value;    
+
+        }
+
+        function fillPassword() {
+                document.getElementById('password2').value = document.getElementById('password1').value;    
+        }
+    </script>
+
+    <section class="child register">
+        <form method="POST" class="register-form" enctype="multipart/form-data">
+            {% csrf_token %}
+            <legend>REGISTER</legend>
+            <hr>
+            <div class="row">
+                <div class="form-group col-5">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input type="text" class="form-control" id="first_name" name="first_name">
+                </div>
+                <div class="form-group col-5">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    <input type="text" class="form-control" id="last_name" name="last_name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-5">
+                    <label for="exampleInputEmail1">Email Address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email">
+                </div>
+                <div class="form-group col-5">
+                    <label for="exampleInputEmail1">Phone No.</label>
+                    <input type="text" class="form-control" id="phone" name="phone">
+                </div>
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Username</label>
+                <input type="email" class="form-control" id="username" name="username">
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputEmail1">Student_id</label>
+                <input type="email" class="form-control" id="student_id" name="student_id">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
+            </div>
+            <div class="form-group" hidden>
+                <label for="exampleInputPassword1">Confirm Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Address</label>
+                <textarea type="text" class="form-control" id="address" name="address"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">College</label>
+                <input type="text" class="form-control" id="college" name="college">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Discipline</label>
+                <input type="text" class="form-control" id="programme" name="programme">
+            </div>
+
+            <br>
+            <div class="row ml-auto mr-auto col-12" style="text-align: center;">
+                <button type="submit" class="btn btn-success col-5 h-20 ml-auto mr-3">Register</button>
+                <a class="btn btn-outline-danger col-5 h-20 mr-auto" href="{% url 'index' %}">Cancel</a>
+            </div>
+            <br>
+            <center><small style="align-items: center;">Already have an account? <a href="{% url 'login' %}">Login</a></small></center>
+            
+        </form>
+    </section>
+
+{% endblock content %}

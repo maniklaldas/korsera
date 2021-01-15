@@ -1,0 +1,90 @@
+{% extends 'main/base.htm' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        a{
+            color: navy;
+        }
+
+        .nav-link{
+            color: navy;
+        }
+
+        .nav-link:hover{
+            color: green;
+            background-color: antiquewhite;
+        }
+
+        .course-banner{
+            border: 4px solid navy;
+            border-radius: 10px;
+        }
+
+        .viewer{
+            border: 2px solid brown;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .details{
+            border: 4px solid brown;
+            padding: 10px;
+            padding-bottom: 20px;
+            border-radius: 10px;
+            background-color: antiquewhite;
+        }
+
+        h6{
+            color: navy;
+        }
+
+        h2{
+            color: green;
+        }
+
+        .btn{
+            width: 40%;
+            border-radius: 25px;
+        }
+        
+    </style>
+
+    <section class="course-detail" style="height: max-content; background-color: antiquewhite;">
+        <br><br><br><br><br>
+        <div class="viewer" style="background-color: lemonchiffon">
+            <br>
+            <center>
+                <h2>{{ course.title }} ({{ course.course_code }})</h2>
+                <h6>Instructors: {{ course.instructor1.name }}   {{ course.instructor2.name }}</h6><br>
+            </center>
+            
+            <div class="row">
+                <div class="col-8  p-10">
+                    
+                    <h5>Name: {{ en_student.student.name }}</h5>
+                    <h5>Student Registration No: {{ en_student.student.student_id }}</h5>
+                    <h5>Course Registration No.: <strong>{{ en_student.reg_no }}</strong></h5>
+                    
+                    <br>
+                    <p>
+                        Fees Paid :  {% if en_student.is_fees_paid %} YES {% else %} NO {% endif %}
+                        <br>
+                        Course Status : {{ en_student.status }}
+                    </p>
+                    <br>
+                </div>
+                <div class="col-4">
+                    <center><a href="{% url 'course_details' course.id %}" class="btn btn-primary">COURSE PAGE</a></center> 
+                    <br>
+                    <center>{% if not en_student.is_fees_paid %} <a class="btn btn-success">PAY FEES</a>{% endif %}</center>
+                    <br>
+                    <center>{% if not en_student.is_fees_paid %} <a class="btn btn-danger">WITHDRAW</a>{% endif %}</center>
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+    </section>
+
+{% endblock content %}

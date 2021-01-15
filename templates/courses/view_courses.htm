@@ -1,0 +1,85 @@
+{% extends 'main/base.htm' %}
+{% load static %}
+{% block content %}
+
+    <style>
+        a{
+            color: navy;
+        }
+
+        .nav-link{
+            color: navy;
+        }
+
+        .nav-link:hover{
+            color: green;
+            background-color: antiquewhite;
+        }
+
+        .course-banner{
+            border: 4px solid navy;
+            border-radius: 10px;
+        }
+
+        .viewer{
+            border: 2px solid brown;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .details{
+            border: 4px solid brown;
+            padding: 10px;
+            padding-bottom: 20px;
+            border-radius: 10px;
+            background-color: antiquewhite;
+        }
+
+        h6{
+            color: navy;
+        }
+
+        h2{
+            color: green;
+        }
+
+        .btn{
+            border-radius: 25px;
+        }
+
+        section{
+            padding-left: 10%;
+            padding-right: 10%;
+            padding-bottom: 10%;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: auto;
+            grid-gap: 1rem;
+        }
+        
+    </style>
+
+    <section class="course-detail" style="height: max-content; background-color: antiquewhite;">
+        <br><br><br><br><br>
+        <h2>All Courses</h2>
+
+        <div class="container row">
+            {% for course in courses %}
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.title }}</h5>
+                    <p class="card-text">
+                        <strong>Instructors</strong> : {{ course.instructor1.name }} {{ course.instructor2.name }}<br>
+                        <strong>Department</strong> : {{ course.department }}
+                    </p>
+                    <p class="card-text"><a href="{% url 'course_details' course.id %}" class="btn btn-primary">Course Details</a></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock content %}

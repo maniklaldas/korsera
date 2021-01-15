@@ -1,0 +1,50 @@
+{% extends 'main/base.htm' %}
+{% load static %}
+{% block content %}
+
+    <section class="child about">
+        <div class="jumbotron">
+            <div class="row col-12">
+                <div class="col-8">
+                    <h1 class="display-4">{{ instructor.name }}</h1> 
+                    <p class="lead">
+                        {% if user.instructor == instructor %}<strong>Instructor ID : </strong>{{ instructor.instructor_id }}{% endif %}
+                        <br>
+                        <strong>College: </strong>{{ instructor.college }}<br>
+                        <strong>Department: </strong>{{ instructor.department }}<br>
+                        <strong>Profile Link: </strong><a href="{{ instructor.profile_link }}">Google Scholar</a><br>
+                    </p>
+                </div>
+                <div class="col-4">
+                    <img src="{{ instructor.image.url }}" style="width: 200px; height: 200px; margin-left: 30px;">
+                    <br><br>
+                    <p>
+                        <a href="{% url 'create_course' %}" class="btn btn-primary">New Course</a>
+                        <a href="#" class="btn btn-success">Update Profile</a>
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+
+            <h5>Courses</h5>
+            <div class="container row">
+                {% for course in courses %}
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ course.title }}</h5>
+                            <p class="card-text">
+                                <strong>Instructors</strong> : {{ course.instructor1.name }} {{ course.instructor2.name }}<br>
+                                <strong>Department</strong> : {{ course.department }}
+                            </p>
+                            <p class="card-text"><a href="{% url 'instructor_course_dashboard' course.id %}" class="btn btn-primary">Go to Course</a></p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            
+        </div>
+    </section> 
+    
+{% endblock content %}

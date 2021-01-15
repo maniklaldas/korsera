@@ -1,0 +1,156 @@
+body{
+    background-color: aliceblue;
+}
+
+a{
+    text-emphasis: none;
+    text-transform: none;
+    text-decoration: none;
+    color: navy;
+}
+
+a:hover{
+    text-emphasis: none;
+    text-transform: none;
+    text-decoration: none;
+    color: navy;
+}
+
+nav{
+    position: fixed;
+    background-attachment: fixed;
+}
+
+.navbar{
+    width: 100vw;
+    height: 15vh;
+    background-attachment: fixed;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-item{
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    color: yellowgreen;
+
+    width: max-content;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.nav-item:hover{
+    background-color: yellow;
+    color:green;
+}
+
+.nav-link{
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    color: yellowgreen;
+    width: max-content;
+}
+
+.nav-link:hover{
+    color: yellow;
+}
+
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    font-size: larger;
+    color: yellowgreen;
+}
+
+.hero{
+    height: 90vh;
+    background-color: yellowgreen; 
+    padding-top: 15vh;
+}
+
+.about{
+    height: max-content;
+    background-color: yellowgreen; 
+    padding-top: 25vh;  
+    padding-bottom: 15vh;
+}
+
+.login {
+    height: 90vh;
+    background-color: yellow;
+    padding-top: 15vh;
+}
+
+.register {
+    height: max-content;
+    background-color: lightblue;
+    padding-top: 10vh;
+    padding-bottom: 15vh;
+}
+
+.jumbotron{
+    margin: auto;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10vh;
+}
+
+.footer{
+    text-align: center;
+    height: 50px;
+    vertical-align: auto;
+}
+
+.viewer{
+    width: 80vw;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+}
+
+.row{
+    width: 80vw;
+}
+
+.register-form{
+    width: 70vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15vh;
+    padding: 2%;
+    
+    background: aliceblue;
+    border: 2px solid navy;
+    border-radius: 10px;
+}
+
+.course-banner{
+    width: 90vw;
+    height: 40vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.course-detail{
+    background-color: lemonchiffon;
+    height: max-content;
+    margin-bottom: 10vh;
+}
+
+.btn{
+    border-radius: 25px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: auto;
+    grid-gap: 1rem;
+}
